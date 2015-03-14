@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<common><skyboxes><sky><id>6124879451521024</id><name>Солнечный день</name></sky><sky><id>6666196459978752</id><name>Сумерки</name></sky></skyboxes><stypes><stype><btntext>Палатка</btntext><typ>palatka</typ></stype><stype><btntext>Настил</btntext><typ>floor</typ></stype><stype><btntext>Тент</btntext><typ>tent</typ></stype><stype><btntext>Мотор</btntext><typ>motor</typ></stype></stypes></common>

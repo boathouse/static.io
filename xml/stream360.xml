@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<model><name>STREAM 360</name><dist>30</dist><colors>green|grey|light|stream|1</colors><helpers><helpitem><id>5664248772427776</id><mesh>FrontRunduk</mesh><type>hide</type><tooltip>Передний рундук объёмом 80 л.</tooltip></helpitem><helpitem><id>5752754626625536</id><mesh>BackRunduk</mesh><type>hide</type><tooltip>Задний рундук объёмом 50 л.</tooltip></helpitem></helpers><scenes><sceneitem><id>6293031984562176</id><btnon></btnon><btnoff></btnoff><trigger></trigger><typ></typ></sceneitem></scenes></model>
