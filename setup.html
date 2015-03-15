@@ -156,8 +156,6 @@ function onReady () {
   } (window, document, &quot;http://git.on-web.com.ua/js/onw3d.js&quot;, onReady, setup);
 
   function onReady () {
-    var http = location.protocol;
-    console.log(http);
       onw3d.init('stream300');
       document.querySelector('#btn').onclick = function(event) {
         onw3d.modal('stream300');
