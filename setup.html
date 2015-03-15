@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Setup instruction</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<link rel="icon" href="favicon.ico">
+<link href="css/bootstrap.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script>
+!function($) {
+  $(function() {
+    var $window = $(window);
+    window.prettyPrint && prettyPrint();
+  });
+}(window.jQuery);
+</script>
+<style>
+  body{font-family:Arial, Helvetica, sans-serif; position:relative; font-size:14px;}
+  .container{width:98%;}
+</style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" style="position:relative; color:#FFDF00; padding-left:45px; margin-right:10px;" href="http://boathouse.github.io/v2/">
+        <img src="img/logo.png" style="position:absolute; left:0; top:5px; width:40px;">BoatHouse3D
+      </a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+      <li><a href="setup.html">Установка</a></li>
+      <li><a href="https://github.com/boathouse/v2" target="_blank">Файлы</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-9">
+      <h1>Инструкция по установке</h1>
+      <p>Javascript код для установки на сайт: </p>
+      <p>если на странице не подключен JQuery - данный код следует поместить в конце страницы перед закрывающим тегом &lt;/body&gt;</p>
+      <pre class="prettyprint">
+&lt;script&gt;
+var setup = {};
+
+!function(b, o, a, t, v, i, e, w) {
+  w = function () { v.version = "2.1", b.onw3d = b.onw3d || new Onw3dViewer(v), t && t(); },
+  i = o.getElementsByTagName("head")[0], e = o.createElement("script"), e.type = "text/javascript",
+  e.readyState ? e.onreadystatechange = function() {
+    ("loaded" == e.readyState || "complete" == e.readyState) && (e.onreadystatechange = null, w());
+  } : e.onload = function() { w(); }, e.src = a + "?v=" + v.version; i.appendChild(e);
+} (window, document, "http://boathouse.github.io/v2/js/onw3d.js", onReady, setup);
+&lt;/script&gt;
+        </pre>
+
+        <p>В случае с JQuery подключаем так:</p>
+<pre class="prettyprint">
+$(function() {
+  !function(b, o, a, t, v, i, e, w) {
+  ...
+});
+</pre>
+<br>
+        <p><b>onReady</b> - это сallback функция. Вызовется, когда приложение будет готово к использованию, произойдет запуск приложения и загрузка указанной модели: (список доступных кодов моделей см. в таблице)</p>
+        
+        <pre class="prettyprint">
+function onReady () {
+    /* 1-й вариант: запуск в &lt;div&gt; контейнере */
+    onw3d.init('код модели');
+    /* или 2-й вариант: во всплывающем окне */
+    onw3d.modal('код модели');
+}
+        </pre>
+        <p>либо указать действия для кнопок:</p>
+        <pre class="prettyprint">
+function onReady () {
+    document.getElementById('myElement').onclick = function() {
+      onw3d.init('код модели');
+    }  
+}
+        </pre>
+<br>
+        <p><b>setup</b> - объект для доп. настроек</p>
+
+        <p>По умолчанию плеер ищет блок с идентификатором "scene", поэтому добавьте в нужном месте на странице <code class="prettyprint">&lt;div id="scene"&gt;&lt;/div&gt;</code>, либо укажите в setup идентификатор своего блока - { container_id: "your_div_id" }</p>
+        <p>Помимо этого здесь можно переопределить следующие параметры:</p>
+        <ul> 
+          <li><b>player_path</b> - путь к swf файлу плеера
+          <li><b>models_path</b> - к папке с файлам моделей
+          <li><b>textures_path</b> - к изображениям (текстурам)
+          <li><b>xml_path</b> - к файлам данных в формате XML
+        </ul>
+        <p style="font-size:11px;font-weight:700"><sup style="color:red">*</sup>Все пути (url) должны быть указаны абсолютными, например: { xml_path: 'http://domain.com/path_to_xml/' }</p>
+        <p>Это может понадобиться лишь в случае, если захотите разместить файлы на своем сервере. Скачать можно <a href="https://github.com/boathouse/v2" target="_blank">здесь</a>.</p>
+
+<br>
+<h2>Пример полного html кода страницы:</h2>
+<pre class="prettyprint">
+&lt;!doctype html&gt;
+&lt;html lang=&quot;ru&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;title&gt;Пример&lt;/title&gt;
+&lt;style&gt;
+  #container{width:800px; height:600px;}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;container&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+var setup = { version: &quot;2.1&quot;, container_id: &quot;container&quot; };
+
+!function(b, o, a, t, v, i, e, w) {
+  w = function () {b.onw3d = b.onw3d || new Onw3dViewer(v), t &amp;&amp; t(); },
+  i = o.getElementsByTagName(&quot;head&quot;)[0], e = o.createElement(&quot;script&quot;), e.type = &quot;text/javascript&quot;,
+  e.readyState ? e.onreadystatechange = function() {
+    (&quot;loaded&quot; == e.readyState || &quot;complete&quot; == e.readyState) &amp;&amp; (e.onreadystatechange = null, w());
+  } : e.onload = function() { w(); }, e.src = a + &quot;?v=&quot; + v.version; i.appendChild(e);
+} (window, document, &quot;http://boathouse.github.io/v2/js/onw3d.js&quot;, onReady, setup);
+
+function onReady () {
+    onw3d.init('stream300');
+}
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+
+    </div>
+
+    <div class="col-md-3">
+    <p>Коды доступных моделей:</p>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Байдарки STREAM</th>
+            <th>Код модели</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>STREAM 300</td>
+            <td>stream300</td>
+          </tr>
+          <tr>
+            <td>STREAM 360</td>
+            <td>stream360</td>
+          </tr>
+          <tr>
+            <td>STREAM 425</td>
+            <td>stream425</td>
+          </tr>
+          <tr>
+            <td>STREAM 485</td>
+            <td>stream485</td>
+          </tr>
+          <tr>
+            <td>STREAM 550</td>
+            <td>stream550</td>
+          </tr>
+          <tr>
+            <td>STREAM 615</td>
+            <td>stream615</td>
+          </tr>
+          <tr>
+            <td>STREAM 675</td>
+            <td>stream675</td>
+          </tr>
+          <tr>
+            <td>STREAM 680</td>
+            <td>stream680</td>
+          </tr>
+          </tbody>
+      </table>
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Транцевые байдарки SPORT</th>
+            <th>Код модели</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>SPORT 310</td>
+            <td>sport310</td>
+          </tr>
+          <tr>
+            <td>SPORT 370</td>
+            <td>sport370</td>
+          </tr>
+          <tr>
+            <td>SPORT 435</td>
+            <td>sport435</td>
+          </tr>
+          <tr>
+            <td>SPORT 500</td>
+            <td>sport500</td>
+          </tr>
+          <tr>
+            <td>SPORT 560</td>
+            <td>sport560</td>
+          </tr>
+          <tr>
+            <td>SPORT 625</td>
+            <td>sport625</td>
+          </tr>
+          <tr>
+            <td>SPORT 685</td>
+            <td>sport685</td>
+          </tr>
+          <tr>
+            <td>SPORT 690</td>
+            <td>sport690</td>
+          </tr>
+          </tbody>
+      </table>
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Лодки FISHER</th>
+            <th>Код модели</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>FISHER 310</td>
+            <td>fisher310</td>
+          </tr>
+          <tr>
+            <td>FISHER 380</td>
+            <td>fisher380</td>
+          </tr>
+          <tr>
+            <td>FISHER 450</td>
+            <td>fisher450</td>
+          </tr>
+          <tr>
+            <td>FISHER 510</td>
+            <td>fisher510</td>
+          </tr>
+          <tr>
+            <td>FISHER 580</td>
+            <td>fisher580</td>
+          </tr>
+          <tr>
+            <td>FISHER 650</td>
+            <td>fisher650</td>
+          </tr>
+          </tbody>
+      </table>
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Катамараны TRAVEL</th>
+            <th>Код модели</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>TRAVEL 320 F</td>
+            <td>travel320f</td>
+          </tr>
+          <tr>
+            <td>TRAVEL 380 F</td>
+            <td>travel380f</td>
+          </tr>
+          <tr>
+            <td>TRAVEL 380 T</td>
+            <td>travel380t</td>
+          </tr>
+          <tr>
+            <td>TRAVEL 520 F</td>
+            <td>travel520f</td>
+          </tr>
+          <tr>
+            <td>TRAVEL 520 T</td>
+            <td>travel520t</td>
+          </tr>
+          <tr>
+            <td>TRAVEL 580 F</td>
+            <td>travel580f</td>
+          </tr>
+          <tr>
+            <td>TRAVEL 580 T</td>
+            <td>travel580t</td>
+          </tr>
+          <tr>
+            <td>TRAVEL 720 F</td>
+            <td>travel720f</td>
+          </tr>
+          <tr>
+            <td>TRAVEL 720 T</td>
+            <td>travel720t</td>
+          </tr>
+          </tbody>
+      </table>
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Тримараны</th>
+            <th>Код модели</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>TRIM STREAM</td>
+            <td>trim680</td>
+          </tr>
+          <tr>
+            <td>TRIM SPORT</td>
+            <td>trim685</td>
+          </tr>
+          <tr>
+            <td>TRIM FISHER</td>
+            <td>trim650</td>
+          </tr>
+          <tr>
+            <td>TRIM TRAVEL F</td>
+            <td>trim720f</td>
+          </tr>
+          <tr>
+            <td>TRIM TRAVEL T</td>
+            <td>trim720t</td>
+          </tr>
+          </tbody>
+      </table>
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Квадромараны</th>
+            <th>Код модели</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>QUAD STREAM</td>
+            <td>quad680</td>
+          </tr>
+          <tr>
+            <td>QUAD SPORT</td>
+            <td>quad685</td>
+          </tr>
+          <tr>
+            <td>QUAD FISHER</td>
+            <td>quad650</td>
+          </tr>
+          <tr>
+            <td>QUAD TRAVEL F</td>
+            <td>quad720f</td>
+          </tr>
+          <tr>
+            <td>QUAD TRAVEL T</td>
+            <td>quad720t</td>
+          </tr>
+          </tbody>
+      </table>
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Надувные баллоны</th>
+            <th>Код модели</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Balloon1</td>
+            <td>balloon1</td>
+          </tr>
+          <tr>
+            <td>Balloon2</td>
+            <td>balloon2</td>
+          </tr>
+          <tr>
+            <td>Balloon3</td>
+            <td>balloon3</td>
+          </tr>
+          <tr>
+            <td>Balloon4</td>
+            <td>balloon4</td>
+          </tr>
+          </tbody>
+      </table>
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Надувные настилы</th>
+            <th>Код модели</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>210Х150</td>
+            <td>nastil210x150</td>
+          </tr>
+          <tr>
+            <td>196Х95</td>
+            <td>nastil196x95</td>
+          </tr>
+          <tr>
+            <td>188Х38</td>
+            <td>nastil188x38</td>
+          </tr>
+          <tr>
+            <td>125Х38</td>
+            <td>nastil125x38</td>
+          </tr>
+          </tbody>
+      </table>
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Сидения и кресла</th>
+            <th>Код модели</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Сидение</td>
+            <td>sidenie</td>
+          </tr>
+          <tr>
+            <td>Кресло</td>
+            <td>kreslo_t</td>
+          </tr>
+          <tr>
+            <td>Капитанское</td>
+            <td>kreslo_captain</td>
+          </tr>
+          <tr>
+            <td>Кресло рыбака</td>
+            <td>kreslo_f</td>
+          </tr>
+          </tbody>
+      </table>
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Аэродинамические тенты</th>
+            <th>Код модели</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>140x120</td>
+            <td>140x120</td>
+          </tr>
+          <tr>
+            <td>140x140</td>
+            <td>140x140</td>
+          </tr>
+          <tr>
+            <td>140x160</td>
+            <td>140x160</td>
+          </tr>
+          <tr>
+            <td>280x120</td>
+            <td>280x120</td>
+          </tr>
+          <tr>
+            <td>280x140</td>
+            <td>280x140</td>
+          </tr>
+          <tr>
+            <td>280x160</td>
+            <td>280x160</td>
+          </tr>
+          <tr>
+            <td>280x100</td>
+            <td>280x100</td>
+          </tr>
+          </tbody>
+      </table>
+
+    </div>
+  </div>   
+</div>
+
+</body>
+</html>

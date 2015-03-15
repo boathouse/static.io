@@ -14,8 +14,6 @@
 <script>
 !function($) {
   $(function() {
-    var $window = $(window);
-    window.prettyPrint && prettyPrint();
     $("#wrap").resizable({ ghost: true });
 
     !function(b, o, a, t, v, i, e, w) {
@@ -25,7 +23,7 @@
       e.readyState ? e.onreadystatechange = function() {
         ("loaded" == e.readyState || "complete" == e.readyState) && (e.onreadystatechange = null, w());
       } : e.onload = function() { w(); }, e.src = a + "?v=" + v.version; i.appendChild(e);
-    } (window, document, "http://boathouse.github.io/v2/js/onw3d.js", onReady, { version: "2.1" });
+    } (window, document, "js/onw3d.js", onReady, { version: "2.1" });
 
     function onReady () {
       $("#scene p").html('is ready!').delay(1000).fadeOut();
@@ -73,8 +71,8 @@
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-      <li><a href="">Установка</a></li>
-      <li><a href="">Файлы</a></li>
+      <li><a href="setup.html">Установка</a></li>
+      <li><a target="_blank" href="https://github.com/boathouse/v2">Файлы</a></li>
       </ul>
     </div>
   </div>
