@@ -25,7 +25,7 @@
       e.readyState ? e.onreadystatechange = function() {
         ("loaded" == e.readyState || "complete" == e.readyState) && (e.onreadystatechange = null, w());
       } : e.onload = function() { w(); }, e.src = a + "?v=" + v.version; i.appendChild(e);
-    } (window, document, "js/onw3d.js", onReady, { version: "2.1" });
+    } (window, document, "http://boathouse.github.io/v2/js/onw3d.js", onReady, { version: "2.1" });
 
     function onReady () {
       $("#scene p").html('is ready!').delay(1000).fadeOut();
@@ -36,12 +36,11 @@
             var variant = $("#variant input:checked").attr("id");
             variant == "option1" ? onw3d.init(model) : onw3d.modal(model);
             event.preventDefault ? event.preventDefault() : event.returnValue = !1;
-          })
+          });
       });
     };
-
-  })
-}(window.jQuery)
+  });
+}(window.jQuery);
 </script>
 <style>
   body{font-family:Arial, Helvetica, sans-serif; position:relative; font-size:14px;}
@@ -352,13 +351,9 @@
         </label>
       </div>
       
-
       <div id="wrap">
         <div id="scene"><p style="color:#777">loading...</p><img src="img/boat.png"></div>
       </div>
-      
-      
-      
     </div>
 
   </div>   
