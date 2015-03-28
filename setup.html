@@ -171,7 +171,8 @@ function onReady () {
 
 <br>
 <h2>Пример 2:</h2>
-<p>Обычная вставка swf на странице при помощи &lt;object&gt; - где в параметр flashvars указываем boat=код модели (также здесь можно указать все те параметры что и в предыдущем примере)</p>
+<p>Обычная вставка swf на странице при помощи &lt;object&gt; - где в параметр flashvars указываем boat=код модели (также если надо, здесь можно передать необходимые параметры, как в setup предыдущего примера)</p>
+<p style="font-size:11px;font-weight:700">например: &lt;param name=&quot;flashvars&quot; value=&quot;boat=stream360&amp;xml_path=http://domain.com/path_to_xml/&quot;&gt;</p>
 <a class="example" href="example2.html" target="_blank">Открыть пример №2</a>
 <pre class="prettyprint">
 &lt;!doctype html&gt;
@@ -180,42 +181,42 @@ function onReady () {
 &lt;meta charset=&quot;utf-8&quot;&gt;
 &lt;title&gt;Пример 2&lt;/title&gt;
 &lt;style&gt;
-	html, body { height:100%; background-color: #ffffff; }
-	body { margin:0; padding:0; overflow:hidden; }
-	#scene { position:relative; width:800px; height:600px; margin:20px auto; }
+  html, body { height:100%; background-color: #ffffff; }
+  body { margin:0; padding:0; overflow:hidden; }
+  #scene { position:relative; width:800px; height:600px; margin:20px auto; }
 &lt;/style&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;div id=&quot;scene&quot;&gt;
-		&lt;object classid=&quot;clsid:d27cdb6e-ae6d-11cf-96b8-444553540000&quot; width=&quot;100%&quot; height=&quot;100%&quot;&gt;
-			&lt;param name=&quot;movie&quot; value=&quot;//git.on-web.com.ua/viewer.swf&quot;&gt;
-			&lt;param name=&quot;quality&quot; value=&quot;high&quot;&gt;
-			&lt;param name=&quot;bgcolor&quot; value=&quot;#000000&quot;&gt;
-			&lt;param name=&quot;wmode&quot; value=&quot;direct&quot;&gt;
-			&lt;param name=&quot;scale&quot; value=&quot;noScale&quot;&gt;
-			&lt;param name=&quot;menu&quot; value=&quot;false&quot;&gt;
-			&lt;param name=&quot;salign&quot; value=&quot;tl&quot;&gt;
-			&lt;param name=&quot;allowfullscreen&quot; value=&quot;true&quot;&gt;
-			&lt;param name=&quot;allowScriptAccess&quot; value=&quot;always&quot;&gt;
-			&lt;param name=&quot;flashvars&quot; value=&quot;boat=stream360&quot;&gt;
-			&lt;!--[if !IE]&gt;--&gt;
-			&lt;object type=&quot;application/x-shockwave-flash&quot; data=&quot;//git.on-web.com.ua/viewer.swf&quot; width=&quot;100%&quot; height=&quot;100%&quot;&gt;
-				&lt;param name=&quot;movie&quot; value=&quot;//git.on-web.com.ua/viewer.swf&quot;&gt;
-				&lt;param name=&quot;quality&quot; value=&quot;high&quot;&gt;
-				&lt;param name=&quot;bgcolor&quot; value=&quot;#000000&quot;&gt;
-				&lt;param name=&quot;wmode&quot; value=&quot;direct&quot;&gt;
-				&lt;param name=&quot;scale&quot; value=&quot;noScale&quot;&gt;
-				&lt;param name=&quot;menu&quot; value=&quot;false&quot;&gt;
-				&lt;param name=&quot;salign&quot; value=&quot;tl&quot;&gt;
-				&lt;param name=&quot;allowfullscreen&quot; value=&quot;true&quot;&gt;
-				&lt;param name=&quot;allowScriptAccess&quot; value=&quot;always&quot;&gt;
-				&lt;param name=&quot;flashvars&quot; value=&quot;boat=stream360&quot;&gt;
-			&lt;!--&lt;![endif]--&gt;
-			&lt;!--[if !IE]&gt;--&gt;
-			&lt;/object&gt;
-			&lt;!--&lt;![endif]--&gt;
-		&lt;/object&gt;
-	&lt;/div&gt;
+&lt;div id=&quot;scene&quot;&gt;
+  &lt;object classid=&quot;clsid:d27cdb6e-ae6d-11cf-96b8-444553540000&quot; width=&quot;100%&quot; height=&quot;100%&quot;&gt;
+	&lt;param name=&quot;movie&quot; value=&quot;//git.on-web.com.ua/viewer.swf&quot;&gt;
+	&lt;param name=&quot;quality&quot; value=&quot;high&quot;&gt;
+	&lt;param name=&quot;bgcolor&quot; value=&quot;#000000&quot;&gt;
+	&lt;param name=&quot;wmode&quot; value=&quot;direct&quot;&gt;
+	&lt;param name=&quot;scale&quot; value=&quot;noScale&quot;&gt;
+	&lt;param name=&quot;menu&quot; value=&quot;false&quot;&gt;
+	&lt;param name=&quot;salign&quot; value=&quot;tl&quot;&gt;
+	&lt;param name=&quot;allowfullscreen&quot; value=&quot;true&quot;&gt;
+	&lt;param name=&quot;allowScriptAccess&quot; value=&quot;always&quot;&gt;
+	&lt;param name=&quot;flashvars&quot; value=&quot;boat=stream360&quot;&gt;
+	&lt;!--[if !IE]&gt;--&gt;
+	&lt;object type=&quot;application/x-shockwave-flash&quot; data=&quot;//git.on-web.com.ua/viewer.swf&quot; width=&quot;100%&quot; height=&quot;100%&quot;&gt;
+		&lt;param name=&quot;movie&quot; value=&quot;//git.on-web.com.ua/viewer.swf&quot;&gt;
+		&lt;param name=&quot;quality&quot; value=&quot;high&quot;&gt;
+		&lt;param name=&quot;bgcolor&quot; value=&quot;#000000&quot;&gt;
+		&lt;param name=&quot;wmode&quot; value=&quot;direct&quot;&gt;
+		&lt;param name=&quot;scale&quot; value=&quot;noScale&quot;&gt;
+		&lt;param name=&quot;menu&quot; value=&quot;false&quot;&gt;
+		&lt;param name=&quot;salign&quot; value=&quot;tl&quot;&gt;
+		&lt;param name=&quot;allowfullscreen&quot; value=&quot;true&quot;&gt;
+		&lt;param name=&quot;allowScriptAccess&quot; value=&quot;always&quot;&gt;
+		&lt;param name=&quot;flashvars&quot; value=&quot;boat=stream360&quot;&gt;
+	&lt;!--&lt;![endif]--&gt;
+	&lt;!--[if !IE]&gt;--&gt;
+	&lt;/object&gt;
+	&lt;!--&lt;![endif]--&gt;
+  &lt;/object&gt;
+&lt;/div&gt;
 &lt;/body&gt;
 &lt;/html&gt;
 </pre>
