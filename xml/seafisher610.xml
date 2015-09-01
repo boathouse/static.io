@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<model><name>SEA FISHER 610</name><dist>70</dist><colors>green|grey|light|sea|0</colors><grades><gradeitem><id>5355429349556224</id><mesh>Veslo</mesh><translate>0|-15.85|-0.09</translate><rotate>-50|0|0</rotate><remove></remove></gradeitem></grades><helpers><helpitem><id>6033617302061056</id><mesh>FrontRunduk</mesh><type>hide</type><tooltip>Передний рундук</tooltip></helpitem></helpers></model>
