@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<model><name>Test animation:new</name><dist>50</dist><scenes><sceneitem><id>5428466610601984</id><btnon>да</btnon><btnoff>нет</btnoff><trigger></trigger><typ>tomodel</typ><meshitem><mesh></mesh><action>load</action><reqfile>girl2</reqfile><translate></translate><rotate></rotate><scale></scale></meshitem></sceneitem></scenes></model>
