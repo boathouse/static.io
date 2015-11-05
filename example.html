@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<title>Пример</title>
 	<style>
-		#container{
+		#scene{
 			width:800px; height:600px;
 		}
 		#btn{
@@ -20,19 +20,14 @@
 			position:relative;
 		}
 	</style>
-	</head>
+</head>
 <body>
 	<a id="btn" href="#">Открыть в модальном окне</a>
-	<div id="container"></div>
+	<div id="scene"></div>
 	<script>
 	var setup = { 
-		container_id: "container", /* "scene" - default */
-		player_path: "http://git.on-web.com.ua/viewer.swf", /* default */
-		models_path: "http://git.on-web.com.ua/models/", /* default */
-		textures_path: "http://git.on-web.com.ua/textures/", /* default */
-		xml_path: "http://git.on-web.com.ua/xml/", /* default */
-		version: "2.1", /* необязательный параметр */
-		logo_type: "0" /* "1" - включить */
+		version: "2.3",
+		logo_type: "1"
 	};
 
 	!function(b, o, a, t, v, i, e, w) {
@@ -40,12 +35,10 @@
 		i = o.getElementsByTagName("head")[0], e = o.createElement("script"), e.type = "text/javascript",
 		e.readyState ? e.onreadystatechange = function() {
 		("loaded" == e.readyState || "complete" == e.readyState) && (e.onreadystatechange = null, w());
-		} : e.onload = function() { w(); }, e.src = a + "?v=2.1"; i.appendChild(e);
+		} : e.onload = function() { w(); }, e.src = a + "?v=" + v.version; i.appendChild(e);
 	} (window, document, "http://git.on-web.com.ua/js/onw3d.js", onReady, setup);
 
 	function onReady () {
-		var http = location.protocol;
-    console.log(http);
 	    onw3d.init('stream300');
 	    document.querySelector('#btn').onclick = function(event) {
 	    	onw3d.modal('stream300');
