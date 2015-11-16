@@ -23,7 +23,7 @@
       e.readyState ? e.onreadystatechange = function() {
         ("loaded" == e.readyState || "complete" == e.readyState) && (e.onreadystatechange = null, w());
       } : e.onload = function() { w(); }, e.src = a + "?v=" + v.version; i.appendChild(e);
-    } (window, document, "js/onw3d.js", onReady, { version: "2.1" });
+    } (window, document, "js/onw3d.js", onReady, { version: "2.1", logo_type: "1" });
 
     function onReady () {
       $("#scene p").html('is ready!').delay(1000).fadeOut();
@@ -52,8 +52,8 @@
   #m-close:before{content:"\d7";}
   #m-close:hover{background:#fff; color:#930000;}
   label.btn.active{color:#fe0; text-decoration: underline; cursor:default;}
-  #boatlogo{text-transform:uppercase;text-shadow:0 0 20px #000;}
-  #boatlogo:hover{text-shadow:0 0 10px #000, 0 0 20px #fff;}
+  #boatlogo{text-transform:uppercase; font-weight:700; text-shadow:1px 1px 2px #000;}
+  #boatlogo:hover{text-shadow:1px 1px 2px #000, 0 0 20px #fff;}
 </style>
 </head>
 <body>
@@ -68,7 +68,7 @@
         <span class="icon-bar"></span>
       </button>
       <a id="boatlogo" class="navbar-brand" style="position:relative; color:#FFDF00; font-size:26px; padding-left:25px; margin-right:10px;" href="">
-        <span style="margin-right:40px;">Boat</span> <img src="img/logo.png" style="position:absolute; left:100px; top:5px; width:40px;"> House
+        <span style="margin-right:40px;">Boat</span> <img src="img/logo.png" style="position:absolute; left:104px; top:5px; width:40px;"> House
       </a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
@@ -93,7 +93,7 @@
         <div class="panel panel-default">
           <div class="panel-heading">
             <h4 class="panel-title">
-              <a style="display:block" data-toggle="collapse" data-parent="#accordion" href="#collapse5629499534213120">Байдарки серии STREAM</a>
+              <a style="display:block" data-toggle="collapse" data-parent="#accordion" href="#collapse5629499534213120">Байдарки STREAM</a>
             </h4>
           </div>
           <div id="collapse5629499534213120" class="panel-collapse collapse">
@@ -122,7 +122,7 @@
         <div class="panel panel-default">
           <div class="panel-heading">
             <h4 class="panel-title">
-              <a style="display:block" data-toggle="collapse" data-parent="#accordion" href="#collapse5649050225344512">Транцевые байдарки SPORT</a>
+              <a style="display:block" data-toggle="collapse" data-parent="#accordion" href="#collapse5649050225344512">Надувные байдарки SPORT</a>
             </h4>
           </div>
           <div id="collapse5649050225344512" class="panel-collapse collapse">
@@ -153,7 +153,7 @@
         <div class="panel panel-default">
           <div class="panel-heading">
             <h4 class="panel-title">
-              <a style="display:block" data-toggle="collapse" data-parent="#accordion" href="#collapse5722646637445120">Лодки FISHER</a>
+              <a style="display:block" data-toggle="collapse" data-parent="#accordion" href="#collapse5722646637445120">Надувные лодки FISHER</a>
             </h4>
           </div>
           <div id="collapse5722646637445120" class="panel-collapse collapse">
