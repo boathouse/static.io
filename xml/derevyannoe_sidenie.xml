@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<model><name>Деревянное сидение</name><dist>30</dist><url>None</url><helpers><helpitem><id>5649126595231744</id><mesh>Box</mesh><type>hide</type><tooltip>Только для SEAFISHER</tooltip></helpitem></helpers></model>
+<model><name>Деревянное сидение</name><dist>50</dist><url>None</url><helpers><helpitem><id>5649126595231744</id><mesh>Box</mesh><type>hide</type><tooltip>Только для SEAFISHER</tooltip></helpitem></helpers></model>
