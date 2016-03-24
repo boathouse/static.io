@@ -348,9 +348,10 @@ var Onw3dViewer = function(e) {
     }, this.close = function() {
         document.body.removeChild(this.modc), window.detachEvent ? window.detachEvent("onresize", this.al) : window.removeEventListener && window.removeEventListener("resize", this.al, !1)
     }, this.reload = function(a,b) {
-    	console.log(a+':'+b);
-        this.options.vars.add = b;
-        this.options.vars.view_mode == "1" ? this.modal(a) : this.init(a);
+    	this.options.vars.add = b;
+    	console.log(a+':'+b+':'+this.options.vars);
+        
+        //this.options.vars.view_mode == "1" ? this.modal(a) : this.init(a);
         this.options.vars.add = '';
     }, this.modal = function(e) {
         this.options.vars.boat = e, this.options.vars.logo_type = this.options.logo_type, this.options.vars.view_mode = "1";
