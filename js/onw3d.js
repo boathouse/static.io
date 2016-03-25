@@ -357,8 +357,9 @@ var Onw3dViewer = function(e) {
         this.options.vars.boat = e, this.options.vars.logo_type = this.options.logo_type, this.options.vars.view_mode = "1";
         this.modc = document.createElement("div");
         this.modc.style.position = 'fixed';
-        this.modc.style.position.left = '0';
-        this.modc.style.position.top = '0';
+        this.modc.style.left = '0';
+        this.modc.style.top = '0';
+        this.modc.style.zIndex = '99999999';
         this.modc.style.width = '100%';
         this.modc.style.height = '100%';
         this.modc.id = "modal", document.body.appendChild(this.modc);
