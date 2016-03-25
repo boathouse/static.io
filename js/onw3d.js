@@ -356,6 +356,7 @@ var Onw3dViewer = function(e) {
     }, this.modal = function(e) {console.log('modal:'+e);
         this.options.vars.boat = e, this.options.vars.logo_type = this.options.logo_type, this.options.vars.view_mode = "1";
         this.modc = document.createElement("div");
+        this.modc.style.position = 'fixed';
         this.modc.id = "modal", document.body.appendChild(this.modc);
         var n = document.createElement("div");
         n.id = "modal-cont", this.modc.appendChild(n);
