@@ -18,6 +18,7 @@ var Onw3dViewer = function(e) {
         container_id: "scene",
         vars: {
         	add: "",
+        	view_mode: "0",
             version: "2.1",
             logo_type: "0",
             models_path: bu + "models/",
@@ -343,17 +344,17 @@ var Onw3dViewer = function(e) {
                     }
                 }
             }
-    }(), this.init = function(e) {
+    }(), this.init = function(e) {console.log('init:'+e);
         this.options.vars.boat = e, this.options.vars.logo_type = this.options.logo_type, this.options.vars.view_mode = "0", this.swfobject.embedSWF(this.options.player_path + "?v=" + this.options.vars.version, this.options.container_id, "100%", "100%", "11.0.1.152", "", this.options.vars, this.options.params, {})
     }, this.close = function() {
         document.body.removeChild(this.modc), window.detachEvent ? window.detachEvent("onresize", this.al) : window.removeEventListener && window.removeEventListener("resize", this.al, !1)
     }, this.reload = function(a,b) {
     	this.options.vars.add = b;
-    	console.log(a+':'+b+':'+this.options.vars);
+    	console.log('reload:'+a+':'+b);
         
-        //this.options.vars.view_mode == "1" ? this.modal(a) : this.init(a);
+        this.options.vars.view_mode == "1" ? this.modal(a) : this.init(a);
         this.options.vars.add = '';
-    }, this.modal = function(e) {
+    }, this.modal = function(e) {console.log('modal:'+e);
         this.options.vars.boat = e, this.options.vars.logo_type = this.options.logo_type, this.options.vars.view_mode = "1";
         this.modc = document.createElement("div");
         this.modc.id = "modal", document.body.appendChild(this.modc);
