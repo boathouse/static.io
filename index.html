@@ -32,8 +32,7 @@
           el&&(el.onclick = function (event) {
             $("#wrap").css("background","none");
             var model = el.getAttribute("data-model");
-            var variant = $("#variant input:checked").attr("id");
-            variant == "option1" ? onw3d.init(model) : onw3d.modal(model);
+            onw3d.init(model);
             event.preventDefault ? event.preventDefault() : event.returnValue = !1;
           });
       });
