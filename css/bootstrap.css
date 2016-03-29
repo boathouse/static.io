@@ -439,18 +439,18 @@
 }
 .panel-default > .panel-heading{
 	background: #d4e4ef;
-background: -moz-linear-gradient(top,  #d4e4ef 0%, #86aecc 100%);
-background: -webkit-linear-gradient(top,  #d4e4ef 0%,#86aecc 100%);
-background: linear-gradient(to bottom,  #d4e4ef 0%,#86aecc 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d4e4ef', endColorstr='#86aecc',GradientType=0 );
+background: -moz-linear-gradient(top,  #d4e4ef 0%, #A6C5DC 100%);
+background: -webkit-linear-gradient(top,  #d4e4ef 0%,#A6C5DC 100%);
+background: linear-gradient(to bottom,  #d4e4ef 0%,#A6C5DC 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d4e4ef', endColorstr='#A6C5DC',GradientType=0 );
 
 }
 .panel-heading h4{font-weight: 700}
 .panel-heading:hover{background: #fcfff4;
-background: -moz-linear-gradient(top,  #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
-background: -webkit-linear-gradient(top,  #fcfff4 0%,#dfe5d7 40%,#b3bead 100%);
-background: linear-gradient(to bottom,  #fcfff4 0%,#dfe5d7 40%,#b3bead 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfff4', endColorstr='#b3bead',GradientType=0 );
+background: -moz-linear-gradient(top,  #fcfff4 0%, #dfe5d7 40%, #E3F1DB 100%);
+background: -webkit-linear-gradient(top,  #fcfff4 0%,#dfe5d7 40%,#E3F1DB 100%);
+background: linear-gradient(to bottom,  #fcfff4 0%,#dfe5d7 40%,#E3F1DB 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfff4', endColorstr='#E3F1DB',GradientType=0 );
 }
 .panel-primary > .panel-heading {
   background-image: -webkit-linear-gradient(top, #337ab7 0%, #2e6da4 100%);
