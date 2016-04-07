@@ -1,7 +1,0 @@
-#scene{width:100%; height:100%; text-align: center;}
-#wrap{width:100%; min-width:700px; height:600px; margin:0px auto; position:relative; text-align:center; border:1px solid #ddd; background: #111;}
-#modal{width:100%; position:fixed; top:0; left:0; z-index:11000; background:#333;}
-#modal-cont{position:relative;}
-#m-close{width:30px; height:30px; text-align:center; font-weight:400; font-size:30px; line-height:30px; background: #930000; color:#fff; position:absolute; top:0; right:0; cursor:pointer;}
-#m-close:before{content:"\d7";}
-#m-close:hover{background:#fff; color:#930000; border-radius: 2px;}
