@@ -27,6 +27,16 @@
 
     function onReady () {
       $("#scene p").html('is ready!').delay(1000).fadeOut();
+      /*var out='';
+      $(".panel").each(function(){
+          out+='<table class="table table-striped"><thead><tr><th>'+$(this).find("h4").text()+'</th><th>Код модели</th></tr></thead><tbody>';
+          $(this).find(".panel-body a").each(function(){
+              out+='<tr><td>'+$(this).text()+'</td><td>'+$(this).attr("data-model")+'</td></tr>';
+          });
+          out+='</tbody></table>';
+      });
+
+      console.log(out);*/
       
       [].slice.call(document.querySelectorAll(".panel-body a")).forEach(function (el) {
           el&&(el.onclick = function (event) {
