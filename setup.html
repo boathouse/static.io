@@ -14,23 +14,8 @@
   $(function() {
     var $window = $(window);
     window.prettyPrint && prettyPrint();
-    // $.ajax({
-    //     type: "GET",
-    //     url: "http://git.on-web.com.ua/xml/summary.xml",
-    //     dataType: "xml",
-    //     success: xmlParser
-    // });
   });
 }(window.jQuery);
-
-function xmlParser(xml) {
-  console.log(xml);
-    // $('#load').fadeOut();
-    // $(xml).find("Book").each(function () {
-    //     $(".main").append('<div class="book"><div class="title">' + $(this).find("Title").text() + '</div><div class="description">' + $(this).find("Description").text() + '</div><div class="date">Published ' + $(this).find("Date").text() + '</div></div>');
-    //     $(".book").fadeIn(1000);
-    // });
-}
 </script>
 <style>
   body{font-family:Arial, Helvetica, sans-serif; position:relative; font-size:14px;}
@@ -74,7 +59,7 @@ function xmlParser(xml) {
 var setup = {};
 
 !function(b, o, a, t, v, i, e, w) {
-  w = function () { v.version = "2.1", b.onw3d = b.onw3d || new Onw3dViewer(v), t && t(); },
+  w = function () { v.version = "2.1", b.onw3d = new Onw3dViewer(v), t && t(); },
   i = o.getElementsByTagName("head")[0], e = o.createElement("script"), e.type = "text/javascript",
   e.readyState ? e.onreadystatechange = function() {
     ("loaded" == e.readyState || "complete" == e.readyState) && (e.onreadystatechange = null, w());
@@ -800,7 +785,7 @@ function onReady () {
 	        </tr>
 	    </tbody>
 	</table>
-<p>* <small><a href="http://boathouse.on-web.com.ua/xml/getall" target="_blank">Список моделей XML</a></small></p>
+	<p>* <small><a href="http://boathouse.on-web.com.ua/xml/getall" target="_blank">Список моделей XML</a></small></p>
     </div>
   </div>   
 </div>
