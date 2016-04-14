@@ -38,7 +38,13 @@
       });
     };
     
-    function addToCart(product_id, quantity) {
+    
+
+
+  });
+}(window.jQuery);
+
+function addToCart(product_id, quantity) {
         quantity = typeof(quantity) != 'undefined' ? quantity : 1;
     
         $.ajax({
@@ -51,10 +57,6 @@
             }
         });
     }
-
-
-  });
-}(window.jQuery);
 </script>
 <style>
   body{height:100%;min-height:100%;font-family:Arial, Helvetica, sans-serif; position:relative; font-size:14px;background: url(img/water_hires.jpg) no-repeat top center; background-size: cover;}
