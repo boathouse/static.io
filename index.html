@@ -45,8 +45,9 @@
   
     $.get("http://boathouse.ua/index.php?route=get_models_data").done(function (xml) {
       $(xml).find("model").each(function(idx, v) {
-        prices[$(v).find("kod").text()] = $(v).find("price").text()
+        prices[$(v).find("kod").text()] = $(v).find("price").text();
       });
+      setPrices();
     });
 
 
