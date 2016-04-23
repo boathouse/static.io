@@ -42,14 +42,15 @@
 $.get("http://boathouse.ua/index.php?route=get_models_data").done(function (xml) {
   var arr = [];
   $(xml).find("model").each(function(idx, v) {
-    console.log($(v).find("kod").text());
+    //console.log($(v).find("kod").text());
+    arr[$(v).find("kod").text()] = $(v).find("id").text()
       //arr[idx] = [];
       //$(v).find("kod").each(function( i , vi) {
           //arr[idx].push( $(vi).text() );
           //arr[$(vi).text()].push($(v).find("id").text());
       //});             
   });
-  //console.log( arr );
+  console.log( arr );
   //console.log(data);
 });
 
