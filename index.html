@@ -41,9 +41,9 @@
   
 $.get("http://boathouse.ua/index.php?route=get_models_data").done(function (xml) {
   var arr = [];
-    $(xml).find("cat").each(function(idx, v) {
+    $(xml).find("model").each(function(idx, v) {
         arr[idx] = [];
-        $(v).find("item").each(function( i , vi) {
+        $(v).find("id").each(function( i , vi) {
             arr[idx].push( $(vi).text() );
         });             
     });
