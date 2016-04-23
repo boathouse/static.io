@@ -42,7 +42,7 @@
     function setPrices(){
       $('.panel-body a').each(function(idx, el){
           var dm = $(el).attr('data-model');
-          if(isNaN(prices[dm])) {
+          if(!isNaN(prices[dm])) {
             $(el).parent().append('<i>\u0024' + parseInt(prices[dm]) + '</i>');
           }
           
