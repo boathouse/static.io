@@ -38,7 +38,7 @@
       });
     };
     
-  var XHR = ("onload" in new XMLHttpRequest()) ? XMLHttpRequest : XDomainRequest;
+  /*var XHR = ("onload" in new XMLHttpRequest()) ? XMLHttpRequest : XDomainRequest;
   var request = new XHR();
   request.open('POST', 'http://boathouse.ua/models.xml', true);
   request.withCredentials = true;
@@ -50,8 +50,10 @@
   alert( 'Ошибка ' + this.status );
   }
   };
-  request.send();  
-
+  request.send();  */
+$.get("http://boathouse.ua/index.php?route=get_models_data").done(function (data) {
+    console.log(data);
+});
 
   });
 }(window.jQuery);
