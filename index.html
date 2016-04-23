@@ -41,14 +41,15 @@
   
 $.get("http://boathouse.ua/index.php?route=get_models_data").done(function (xml) {
   var arr = [];
-    $(xml).find("model").each(function(idx, v) {
-        arr[idx] = [];
-        $(v).find("id").each(function( i , vi) {
-            arr[idx].push( $(vi).text() );
-        });             
-    });
-    console.log( arr );
-    //console.log(data);
+  $(xml).find("model").each(function(idx, v) {
+      //arr[idx] = [];
+      $(v).find("kod").each(function( i , vi) {
+          //arr[idx].push( $(vi).text() );
+          arr[$(vi).text()].push($(v).find("id").text());
+      });             
+  });
+  console.log( arr );
+  //console.log(data);
 });
 
 
