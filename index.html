@@ -42,7 +42,8 @@
     function setPrices(){
       $('.panel-body a').each(function(idx, el){
           var dm = $(el).attr('data-model');
-          $(el).parent().append('<i>\u0024'+parseInt(prices[dm])+'</i>')
+          var pr = '<i>\u0024'+parseInt(prices[dm])+'</i> || '';
+          $(el).parent().append(pr);
       });
     }
   
