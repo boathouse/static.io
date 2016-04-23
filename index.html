@@ -44,7 +44,6 @@
           var dm = $(el).attr('data-model');
           $(el).parent().append('<i>'+prices[dm]+'</i>')
       });
-      //console.log(prices);
     }
   
     $.get("http://boathouse.ua/index.php?route=get_models_data").done(function (xml) {
@@ -53,13 +52,9 @@
       });
       setPrices();
     });
-
-
-
+    
   });
 }(window.jQuery);
-
-
 </script>
 
 <style>
@@ -76,6 +71,7 @@
   label.btn.active{color:#fe0; text-decoration: underline; cursor:default;}
   #boatlogo{text-transform:uppercase; font-weight:700; text-shadow:1px 1px 2px #000;}
   #boatlogo:hover{text-shadow:1px 1px 2px #000, 0 0 20px #fff;}
+  .panel-body i{float:right; color:#c00;}
 </style>
 </head>
 <body>
