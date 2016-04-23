@@ -38,39 +38,25 @@
       });
     };
     
-  /*var XHR = ("onload" in new XMLHttpRequest()) ? XMLHttpRequest : XDomainRequest;
-  var request = new XHR();
-  request.open('POST', 'http://boathouse.ua/models.xml', true);
-  request.withCredentials = true;
-  request.onreadystatechange = function() {
-  if (this.readyState != 4) return;
-  if (this.status == 200) {
-  alert( this.responseText );
-  } else {
-  alert( 'Ошибка ' + this.status );
-  }
-  };
-  request.send();  */
-$.get("http://boathouse.ua/index.php?route=get_models_data").done(function (data) {
-    console.log(data);
+  
+$.get("http://boathouse.ua/index.php?route=get_models_data").done(function (xml) {
+  var arr = [];
+    $(xml).find("cat").each(function(idx, v) {
+        arr[idx] = [];
+        $(v).find("item").each(function( i , vi) {
+            arr[idx].push( $(vi).text() );
+        });             
+    });
+    console.log( arr );
+    //console.log(data);
 });
+
+
 
   });
 }(window.jQuery);
 
-function addToCart(product_id, quantity) {
-        quantity = typeof(quantity) != 'undefined' ? quantity : 1;
-    
-        $.ajax({
-            url: 'http://boathouse.ua/index.php?route=checkout/cart/add',
-            type: 'post',
-            data: 'product_id=' + product_id + '&quantity=' + quantity,
-            dataType: 'json',
-            success: function(json) {
-                console.log(json);
-            }
-        });
-    }
+
 </script>
 
 <style>
