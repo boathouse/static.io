@@ -15,7 +15,8 @@
 !function($) {
   $(function() {
     $("#wrap").css("height", ($(window).height()-100)+"px").resizable({ ghost: true });
-
+    var prices = [];
+    
     !function(b, o, a, t, v, i, e, w) {
       w = function() { v = v || {}, b.onw3d = b.onw3d || new Onw3dViewer(v), t && t(); },
       i = o.getElementsByTagName("head")[0],
@@ -38,21 +39,15 @@
       });
     };
     
+    function setPrices(){
+      console.log(prices);
+    }
   
-$.get("http://boathouse.ua/index.php?route=get_models_data").done(function (xml) {
-  var arr = [];
-  $(xml).find("model").each(function(idx, v) {
-    //console.log($(v).find("kod").text());
-    arr[$(v).find("kod").text()] = $(v).find("id").text()
-      //arr[idx] = [];
-      //$(v).find("kod").each(function( i , vi) {
-          //arr[idx].push( $(vi).text() );
-          //arr[$(vi).text()].push($(v).find("id").text());
-      //});             
-  });
-  console.log( arr );
-  //console.log(data);
-});
+    $.get("http://boathouse.ua/index.php?route=get_models_data").done(function (xml) {
+      $(xml).find("model").each(function(idx, v) {
+        prices[$(v).find("kod").text()] = $(v).find("price").text()
+      });
+    });
 
 
 
