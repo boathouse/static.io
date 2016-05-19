@@ -12,6 +12,9 @@
 <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 <script src="js/bootstrap.js"></script>
 <script>
+function locateTo(a) {
+    	window.location = '/#'+a;
+}
 !function($) {
   $(function() {
     $("#wrap").css("height", ($(window).height()-100)+"px").resizable({ ghost: true });
@@ -39,9 +42,6 @@
       });
     };
 
-    function locateTo(a) {
-    	window.location = '/#'+a;
-    }
     
     function setPrices(){
       $('.panel-body a').each(function(idx, el){
