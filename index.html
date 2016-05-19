@@ -15,12 +15,18 @@
 function locateTo(a) {
     	window.location.href = '?loc='+a;
 }
-var loc = window.location.search.replace("?loc=","") || "rus";
+var loc = window.location.search.replace("?loc=","") || "rus", locs={rus:0,en:1,de:2,fr:3};
 
 !function($) {
   $(function() {
     $("#wrap").css("height", ($(window).height()-100)+"px").resizable({ ghost: true });
     var prices = [];
+
+	$('#loc').val(loc).selectpicker({
+	  style: 'btn-info',
+	});
+
+    transTo(loc);
     
     !function(b, o, a, t, v, i, e, w) {
       w = function() { v = v || {}, b.onw3d = b.onw3d || new Onw3dViewer(v), t && t(); },
@@ -33,7 +39,7 @@ var loc = window.location.search.replace("?loc=","") || "rus";
 
     function onReady () {
       $("#scene p").html('is ready!').delay(1000).fadeOut();
-      document.getElementById('loc').value = loc;
+      
       
       [].slice.call(document.querySelectorAll(".panel-body a")).forEach(function (el) {
           el&&(el.onclick = function (event) {
@@ -44,6 +50,15 @@ var loc = window.location.search.replace("?loc=","") || "rus";
           });
       });
     };
+
+    function transTo(a) {
+    	$('.trans').each(function(idx, el){
+          var tr = $(el).attr('data-trans');
+          var ar = tr.split(',');
+          $(el).text(ar[locs[loc]]);
+          //console.log();	
+      	});
+    }
 
     function setPrices(){
       $('.panel-body a').each(function(idx, el){
@@ -97,12 +112,12 @@ var loc = window.location.search.replace("?loc=","") || "rus";
         <span style="margin-right:40px;">Boat</span> <img src="img/logo.png" style="position:absolute; left:104px; top:5px; width:40px;"> House
       </a>
     </div>
-    <div style="float:right; color:#bbb; margin-top:15px">Выбор языка: 
-      	<select id="loc" style="color:#333" name="loc" onChange="locateTo(this.value)">
-	      <option value="rus" selected>Русский
-	      <option value="en">Английский
-	      <option value="de">Немецкий
-	      <option value="fr">Французский
+    <div style="float:right; color:#bbb; margin-top:15px"><span class="trans" data-trans="Выбор языка,Language selection,Sprache wählen,Sélection de la langue">Выбор языка:</span> 
+      	<select id="loc" style="color:#333" name="loc" onChange="locateTo(this.value)" class="selectpicker" data-width="fit">
+	      <option data-content="<span class='trans rus' data-trans='Русский,Russian,Russisch,Russe'>" value="rus" selected>Русский
+	      <option data-content="<span class='trans en' data-trans='Английский,English,Englisch,Anglais'>" value="en">Английский
+	      <option data-content="<span class='trans de' data-trans='Немецкий,German,Deutsch,Allemagne'>" value="de">Немецкий
+	      <option data-content="<span class='trans fr' data-trans='Французский,French,Französisch,Français'>" value="fr">Французский
       	</select>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
@@ -128,7 +143,7 @@ var loc = window.location.search.replace("?loc=","") || "rus";
         <div class="panel panel-default">
           <div class="panel-heading">
             <h4 class="panel-title">
-              <a style="display:block" data-toggle="collapse" data-parent="#accordion" href="#collapse5629499534213120">Байдарки STREAM</a>
+              <a style="display:block" data-toggle="collapse" data-parent="#accordion" href="#collapse5629499534213120"><span class="trans" data-trans="Байдарки,Kayak,Kajaks,Kayaks">Байдарки</span> STREAM</a>
             </h4>
           </div>
           <div id="collapse5629499534213120" class="panel-collapse collapse">
@@ -161,7 +176,7 @@ var loc = window.location.search.replace("?loc=","") || "rus";
         <div class="panel panel-default">
           <div class="panel-heading">
             <h4 class="panel-title">
-              <a style="display:block" data-toggle="collapse" data-parent="#accordion" href="#collapse5649050225344512">Транцевые байдарки SPORT</a>
+              <a style="display:block" data-toggle="collapse" data-parent="#accordion" href="#collapse5649050225344512"><span class="trans" data-trans="Транцевые байдарки,Transom kayak,Heckbalkenkajaks,Kayaks d'arcasse">Транцевые байдарки</span> SPORT</a>
             </h4>
           </div>
           <div id="collapse5649050225344512" class="panel-collapse collapse">
@@ -204,7 +219,7 @@ var loc = window.location.search.replace("?loc=","") || "rus";
         <div class="panel panel-default">
           <div class="panel-heading">
             <h4 class="panel-title">
-              <a style="display:block" data-toggle="collapse" data-parent="#accordion" href="#collapse5722646637445120">Лодки FISHER</a>
+              <a style="display:block" data-toggle="collapse" data-parent="#accordion" href="#collapse5722646637445120"><span class="trans" data-trans="Лодки,Boats,Boote,Canots">Лодки</span> FISHER</a>
             </h4>
           </div>
           <div id="collapse5722646637445120" class="panel-collapse collapse">
@@ -247,7 +262,7 @@ var loc = window.location.search.replace("?loc=","") || "rus";
         <div class="panel panel-default">
           <div class="panel-heading">
             <h4 class="panel-title">
-              <a style="display:block" data-toggle="collapse" data-parent="#accordion" href="#collapse4882792357822464">Морские лодки SEAFISHER</a>
+              <a style="display:block" data-toggle="collapse" data-parent="#accordion" href="#collapse4882792357822464"><span class="trans" data-trans="Морские лодки,Sea boats,Seeboote,Canots maritimes">Морские лодки</span> SEAFISHER</a>
             </h4>
           </div>
           <div id="collapse4882792357822464" class="panel-collapse collapse">
@@ -290,7 +305,7 @@ var loc = window.location.search.replace("?loc=","") || "rus";
         <div class="panel panel-default">
           <div class="panel-heading">
             <h4 class="panel-title">
-              <a style="display:block" data-toggle="collapse" data-parent="#accordion" href="#collapse5071522616049664">Катамараны TRAVEL</a>
+              <a style="display:block" data-toggle="collapse" data-parent="#accordion" href="#collapse5071522616049664"><span class="trans" data-trans="Катамараны,Catamaran,Katamaran,Catamarans">Катамараны</span> TRAVEL</a>
             </h4>
           </div>
           <div id="collapse5071522616049664" class="panel-collapse collapse">
@@ -331,7 +346,7 @@ var loc = window.location.search.replace("?loc=","") || "rus";
         <div class="panel panel-default">
           <div class="panel-heading">
             <h4 class="panel-title">
-              <a style="display:block" data-toggle="collapse" data-parent="#accordion" href="#collapse5083442224037888">Боковые платформы</a>
+              <a style="display:block" class="trans" data-trans="Боковые платформы,Side platforms,Seitenplattfotmdecke,Plates-formes latérales" data-toggle="collapse" data-parent="#accordion" href="#collapse5083442224037888">Боковые платформы</a>
             </h4>
           </div>
           <div id="collapse5083442224037888" class="panel-collapse collapse">
@@ -354,23 +369,23 @@ var loc = window.location.search.replace("?loc=","") || "rus";
         <div class="panel panel-default">
           <div class="panel-heading">
             <h4 class="panel-title">
-              <a style="display:block" data-toggle="collapse" data-parent="#accordion" href="#collapse6285596590866432">Ходовые тенты</a>
+              <a style="display:block" class="trans" data-trans="Ходовые тенты,Bimini top,Bimini Top,Toits bimini" data-toggle="collapse" data-parent="#accordion" href="#collapse6285596590866432">Ходовые тенты</a>
             </h4>
           </div>
           <div id="collapse6285596590866432" class="panel-collapse collapse">
             <div class="panel-body">
               
-              <p><a href="#" data-model="140x100">tent 140x100</a></p>
+              <p><a href="#" data-model="140x100">140x100</a></p>
               
-              <p><a href="#" data-model="140x150">tent 140x150</a></p>
+              <p><a href="#" data-model="140x150">140x150</a></p>
               
-              <p><a href="#" data-model="140x180">tent 140x180</a></p>
+              <p><a href="#" data-model="140x180">140x180</a></p>
               
-              <p><a href="#" data-model="280x100">tent 280x100</a></p>
+              <p><a href="#" data-model="280x100">280x100</a></p>
               
-              <p><a href="#" data-model="280x150">tent 280x150</a></p>
+              <p><a href="#" data-model="280x150">280x150</a></p>
               
-              <p><a href="#" data-model="280x180">tent 280x180</a></p>
+              <p><a href="#" data-model="280x180">280x180</a></p>
               
             </div>
           </div>
@@ -379,15 +394,15 @@ var loc = window.location.search.replace("?loc=","") || "rus";
         <div class="panel panel-default">
           <div class="panel-heading">
             <h4 class="panel-title">
-              <a style="display:block" data-toggle="collapse" data-parent="#accordion" href="#collapse5648161435549696">Парусное вооружение</a>
+              <a style="display:block" class="trans" data-trans="Парусное вооружение,Rigging,Takelung,Matériel embarqué" data-toggle="collapse" data-parent="#accordion" href="#collapse5648161435549696">Парусное вооружение</a>
             </h4>
           </div>
           <div id="collapse5648161435549696" class="panel-collapse collapse">
             <div class="panel-body">
               
-              <p><a href="#" data-model="parus_easy">Парус простой</a></p>
+              <p><a href="#" class="trans" data-trans="Парус простой,Regular sail,einfaches Segel,Voile simple" data-model="parus_easy">Парус простой</a></p>
               
-              <p><a href="#" data-model="parus_shvert">Парус со швертами</a></p>
+              <p><a href="#" class="trans" data-trans="Парус со швертами,Sail with centreboards,Segel mit Schwertern,Voile avec les dérives" data-model="parus_shvert">Парус со швертами</a></p>
               
             </div>
           </div>
@@ -396,31 +411,31 @@ var loc = window.location.search.replace("?loc=","") || "rus";
         <div class="panel panel-default">
           <div class="panel-heading">
             <h4 class="panel-title">
-              <a style="display:block" data-toggle="collapse" data-parent="#accordion" href="#collapse5178081291534336">Надувные баллоны</a>
+              <a style="display:block" class="trans" data-trans="Надувные баллоны,Inflatable balloon,Aufblasbares Ballon,Ballonets gonflables" data-toggle="collapse" data-parent="#accordion" href="#collapse5178081291534336">Надувные баллоны</a>
             </h4>
           </div>
           <div id="collapse5178081291534336" class="panel-collapse collapse">
             <div class="panel-body">
               
-              <p><a href="#" data-model="balloon1">Баллоны, д. 32 &#34;нос-нос&#34;</a></p>
+              <p><a class="trans" data-trans="" href="#" data-model="balloon1">Баллоны, д. 32 &#34;нос-нос&#34;</a></p>
               
-              <p><a href="#" data-model="balloon2">Баллоны, д. 32 &#34;ассиметр.&#34;</a></p>
+              <p><a class="trans" data-trans="" href="#" data-model="balloon2">Баллоны, д. 32 &#34;ассиметр.&#34;</a></p>
               
-              <p><a href="#" data-model="balloon3">Баллоны, д. 38 &#34;нос-нос&#34;</a></p>
+              <p><a class="trans" data-trans="" href="#" data-model="balloon3">Баллоны, д. 38 &#34;нос-нос&#34;</a></p>
               
-              <p><a href="#" data-model="balloon4">Баллоны, д. 38 &#34;ассиметр.&#34;</a></p>
+              <p><a class="trans" data-trans="" href="#" data-model="balloon4">Баллоны, д. 38 &#34;ассиметр.&#34;</a></p>
               
-              <p><a href="#" data-model="balloon5">Баллоны, д. 41 &#34;нос-нос&#34;</a></p>
+              <p><a class="trans" data-trans="" href="#" data-model="balloon5">Баллоны, д. 41 &#34;нос-нос&#34;</a></p>
               
-              <p><a href="#" data-model="balloon6">Баллоны, д. 41 &#34;ассиметр.&#34;</a></p>
+              <p><a class="trans" data-trans="" href="#" data-model="balloon6">Баллоны, д. 41 &#34;ассиметр.&#34;</a></p>
               
-              <p><a href="#" data-model="balloon7">Баллоны, д. 45 &#34;нос-нос&#34;</a></p>
+              <p><a class="trans" data-trans="" href="#" data-model="balloon7">Баллоны, д. 45 &#34;нос-нос&#34;</a></p>
               
-              <p><a href="#" data-model="balloon8">Баллоны, д. 45 &#34;ассиметр.&#34;</a></p>
+              <p><a class="trans" data-trans="" href="#" data-model="balloon8">Баллоны, д. 45 &#34;ассиметр.&#34;</a></p>
               
-              <p><a href="#" data-model="balloon9">Баллоны, д. 50 &#34;нос-нос&#34;</a></p>
+              <p><a class="trans" data-trans="" href="#" data-model="balloon9">Баллоны, д. 50 &#34;нос-нос&#34;</a></p>
               
-              <p><a href="#" data-model="balloon10">Баллоны, д. 50 &#34;ассиметр.&#34;</a></p>
+              <p><a class="trans" data-trans="" href="#" data-model="balloon10">Баллоны, д. 50 &#34;ассиметр.&#34;</a></p>
               
             </div>
           </div>
@@ -429,23 +444,23 @@ var loc = window.location.search.replace("?loc=","") || "rus";
         <div class="panel panel-default">
           <div class="panel-heading">
             <h4 class="panel-title">
-              <a style="display:block" data-toggle="collapse" data-parent="#accordion" href="#collapse5186378094608384">Сидения и кресла</a>
+              <a style="display:block" class="trans" data-trans="Сидения и кресла,Seats and armchairs,Stühle und Sessel,Sièges et chaises" data-toggle="collapse" data-parent="#accordion" href="#collapse5186378094608384">Сидения и кресла</a>
             </h4>
           </div>
           <div id="collapse5186378094608384" class="panel-collapse collapse">
             <div class="panel-body">
               
-              <p><a href="#" data-model="sidenie">Сидение</a></p>
+              <p><a href="#" class="trans" data-trans="Сидение,Seat,Stuhl,Siège" data-model="sidenie">Сидение</a></p>
               
-              <p><a href="#" data-model="kreslo_t">Кресло турист</a></p>
+              <p><a href="#" class="trans" data-trans="Кресло турист,Tourist's armchair,Tourist-Sessel,Chaise de touriste" data-model="kreslo_t">Кресло турист</a></p>
               
-              <p><a href="#" data-model="kreslo_captain">Кресло капитан</a></p>
+              <p><a href="#" class="trans" data-trans="Кресло капитан,Captain's armchair,Kapitän-Sessel,Chaise de capitaire" data-model="kreslo_captain">Кресло капитан</a></p>
               
-              <p><a href="#" data-model="kreslo_p">Пластиковое кресло</a></p>
+              <p><a href="#" class="trans" data-trans="Пластиковое кресло,Plastic armchair,Plastiksessel,Chaise plastique" data-model="kreslo_p">Пластиковое кресло</a></p>
               
-              <p><a href="#" data-model="kreslorybaka">Кресло рыбака</a></p>
+              <p><a href="#" class="trans" data-trans="Кресло рыбака,Fisherma's armchair,Fischerstuhl,Chaise de pêcheur" data-model="kreslorybaka">Кресло рыбака</a></p>
               
-              <p><a href="#" data-model="derevyannoe_sidenie">Деревянное сидение</a></p>
+              <p><a href="#" class="trans" data-trans="Деревянное сидение,Wooden seat,Hölzerne Bank,Siège de bois" data-model="derevyannoe_sidenie">Деревянное сидение</a></p>
               
             </div>
           </div>
@@ -454,17 +469,17 @@ var loc = window.location.search.replace("?loc=","") || "rus";
         <div class="panel panel-default">
           <div class="panel-heading">
             <h4 class="panel-title">
-              <a style="display:block" data-toggle="collapse" data-parent="#accordion" href="#collapse5159696684023808">Надувные настилы</a>
+              <a style="display:block" class="trans" data-trans="Надувные настилы,Inflatable flooring,Aufblasbare Bodenbeläge,Lits gonflables" data-toggle="collapse" data-parent="#accordion" href="#collapse5159696684023808">Надувные настилы</a>
             </h4>
           </div>
           <div id="collapse5159696684023808" class="panel-collapse collapse">
             <div class="panel-body">
               
-              <p><a href="#" data-model="nastil196x89">nastil196x89</a></p>
+              <p><a href="#" data-model="nastil196x89">196x89</a></p>
               
-              <p><a href="#" data-model="nastil196x95">nastil196Х96</a></p>
+              <p><a href="#" data-model="nastil196x95">196Х96</a></p>
               
-              <p><a href="#" data-model="nastil210x150">nastil210Х150</a></p>
+              <p><a href="#" data-model="nastil210x150">210Х150</a></p>
               
             </div>
           </div>
@@ -473,7 +488,7 @@ var loc = window.location.search.replace("?loc=","") || "rus";
         <div class="panel panel-default">
           <div class="panel-heading">
             <h4 class="panel-title">
-              <a style="display:block" data-toggle="collapse" data-parent="#accordion" href="#collapse5732910535540736">Палатки</a>
+              <a style="display:block" class="trans" data-trans="Палатки,Tents,Zelte,Tentes" data-toggle="collapse" data-parent="#accordion" href="#collapse5732910535540736">Палатки</a>
             </h4>
           </div>
           <div id="collapse5732910535540736" class="panel-collapse collapse">
