@@ -45,14 +45,12 @@ var loc = window.location.search.replace("?loc=","") || "rus";
       });
     };
 
-    
     function setPrices(){
       $('.panel-body a').each(function(idx, el){
           var dm = $(el).attr('data-model');
           if(!isNaN(prices[dm])) {
             $(el).parent().append('<i>\u0024' + parseInt(prices[dm]) + '</i>');
           }
-          
       });
     }
   
@@ -95,7 +93,7 @@ var loc = window.location.search.replace("?loc=","") || "rus";
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a id="boatlogo" class="navbar-brand" style="position:relative; color:#FFDF00; font-size:26px; padding-left:25px; margin-right:10px;" href="//boathouse.ua">
+      <a id="boatlogo" class="navbar-brand" style="position:relative; color:#FFDF00; font-size:26px; padding-left:25px; margin-right:10px;top:2px" href="//boathouse.ua">
         <span style="margin-right:40px;">Boat</span> <img src="img/logo.png" style="position:absolute; left:104px; top:5px; width:40px;"> House
       </a>
     </div>
