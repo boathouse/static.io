@@ -13,9 +13,9 @@
 <script src="js/bootstrap.js"></script>
 <script>
 function locateTo(a) {
-    	window.location.href = '#'+a;
+    	window.location.href = '?loc='+a;
 }
-var loc = window.location.hash.replace("#","") || "rus";
+var loc = window.location.search.replace("?loc=","") || "rus";
 console.log(loc);
 !function($) {
   $(function() {
@@ -37,6 +37,7 @@ console.log(loc);
       [].slice.call(document.querySelectorAll(".panel-body a")).forEach(function (el) {
           el&&(el.onclick = function (event) {
             $("#wrap").css("background","none");
+            ​document.getElementById('loc').value = loc;
             var model = el.getAttribute("data-model");
             onw3d.init(model);
             event.preventDefault ? event.preventDefault() : event.returnValue = !1;
