@@ -13,8 +13,9 @@
 <script src="js/bootstrap.js"></script>
 <script>
 function locateTo(a) {
-    	window.location.href = '?loc='+a;
+    window.location.href = '?loc='+a;
 }
+
 var loc = window.location.search.replace("?loc=","") || "rus", locs={rus:0,en:1,de:2,fr:3};
 
 !function($) {
@@ -53,10 +54,9 @@ var loc = window.location.search.replace("?loc=","") || "rus", locs={rus:0,en:1,
 
     function transTo(a) {
     	$('.trans').each(function(idx, el){
-          var tr = $(el).attr('data-trans');
-          var ar = tr.split(',');
-          $(el).text(ar[locs[loc]]);
-          //console.log();	
+          var tr = $(el).attr('data-trans'),
+          ar = tr.split(',');
+          $(el).text(ar[locs[loc]]);	
       	});
     }
 
@@ -83,9 +83,9 @@ var loc = window.location.search.replace("?loc=","") || "rus", locs={rus:0,en:1,
 <style>
   body{height:100%;min-height:100%;font-family:Arial, Helvetica, sans-serif; position:relative; font-size:14px;background: url(img/water_hires.jpg) no-repeat top center; background-size: cover;}
   .container{width:98%;}
-  #scene{width:100%; height:100%; text-align: center}
+  #scene{width:100%; height:100%; text-align: center; }
   #scene img{width:600px; position:absolute; left:30%; bottom:50px;}
-  #wrap{width:100%; height:200px; margin:0px; position:relative; border:none; background: url(img/fon4.jpg) no-repeat top center;}
+  #wrap{width:71%; height:200px; margin:0px; position:relative; position:fixed; left:26%; top:70px;border:none; background: url(img/fon4.jpg) no-repeat top center;}
   #modal{width:100%; position:fixed; top:0; left:0; z-index:11000; background:#333;}
   #modal-cont{position:relative;}
   #m-close{width:30px; height:30px; text-align:center; font-weight:400; font-size:30px; line-height:30px; background: #930000; color:#fff; position:absolute; top:0; right:0; cursor:pointer;}
@@ -112,12 +112,12 @@ var loc = window.location.search.replace("?loc=","") || "rus", locs={rus:0,en:1,
         <span style="margin-right:40px;">Boat</span> <img src="img/logo.png" style="position:absolute; left:104px; top:5px; width:40px;"> House
       </a>
     </div>
-    <div style="float:right; color:#bbb; margin-top:8px"><span class="trans" data-trans="Выбор языка,Language selection,Sprache wählen,Sélection de la langue">Выбор языка:</span> 
+    <div style="float:right; color:#bbb; margin-top:8px"><small style="position:relative; top:-10px"><span class="trans" data-trans="Выбор языка: ,Language selection: ,Sprache wählen: ,Sélection de la langue: ">Выбор языка: </span> </small> 
       	<select id="loc" style="color:#333" name="loc" onChange="locateTo(this.value)" class="selectpicker" data-width="fit">
-	      <option data-content="<span class='trans rus' data-trans='Русский,Russian,Russisch,Russe'>" value="rus" selected>Русский
-	      <option data-content="<span class='trans en' data-trans='Английский,English,Englisch,Anglais'>" value="en">Английский
-	      <option data-content="<span class='trans de' data-trans='Немецкий,German,Deutsch,Allemagne'>" value="de">Немецкий
-	      <option data-content="<span class='trans fr' data-trans='Французский,French,Französisch,Français'>" value="fr">Французский
+  	      <option data-content="<span class='trans rus' data-trans='Русский,Russian,Russisch,Russe'>" value="rus" selected>Русский
+  	      <option data-content="<span class='trans en' data-trans='Английский,English,Englisch,Anglais'>" value="en">Английский
+  	      <option data-content="<span class='trans de' data-trans='Немецкий,German,Deutsch,Allemagne'>" value="de">Немецкий
+  	      <option data-content="<span class='trans fr' data-trans='Французский,French,Französisch,Français'>" value="fr">Французский
       	</select>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
@@ -417,25 +417,25 @@ var loc = window.location.search.replace("?loc=","") || "rus", locs={rus:0,en:1,
           <div id="collapse5178081291534336" class="panel-collapse collapse">
             <div class="panel-body">
               
-              <p><a class="trans" data-trans="" href="#" data-model="balloon1">Баллоны, д. 32 &#34;нос-нос&#34;</a></p>
+              <p><a class="trans" data-trans="Баллон д. 32 симметр. &#34;нос-нос&#34;,Balloon diameter 32see symmetrical,Ballon 32 cm im Durchmesser symmetrisch,Ballonet d'un diamètre de 32cm symétrique" href="#" data-model="balloon1">Баллоны, д. 32 &#34;нос-нос&#34;</a></p>
               
-              <p><a class="trans" data-trans="" href="#" data-model="balloon2">Баллоны, д. 32 &#34;ассиметр.&#34;</a></p>
+              <p><a class="trans" data-trans="Баллон диаметр 32 см. ассимметричный,Balloon diameter 32 see assymmetrical,Ballon 32 cm im Durchmesser asymmetrisch,Ballonet d'un diamètre de 32cm asymétrique" href="#" data-model="balloon2">Баллоны, д. 32 &#34;ассиметр.&#34;</a></p>
               
-              <p><a class="trans" data-trans="" href="#" data-model="balloon3">Баллоны, д. 38 &#34;нос-нос&#34;</a></p>
+              <p><a class="trans" data-trans="Баллон д. 38 симметр. &#34;нос-нос&#34;,Balloon diameter 38see symmetrical,Ballon 38 cm im Durchmesser symmetrisch,Ballonet d'un diamètre de 38cm symétrique" href="#" data-model="balloon3">Баллоны, д. 38 &#34;нос-нос&#34;</a></p>
               
-              <p><a class="trans" data-trans="" href="#" data-model="balloon4">Баллоны, д. 38 &#34;ассиметр.&#34;</a></p>
+              <p><a class="trans" data-trans="Баллон диаметр 38 см. ассимметричный,Balloon diameter * see assymmetrical,Ballon 38 cm im Durchmesser asymmetrisch,Ballonet d'un diamètre de 38cm asymétrique" href="#" data-model="balloon4">Баллоны, д. 38 &#34;ассиметр.&#34;</a></p>
               
-              <p><a class="trans" data-trans="" href="#" data-model="balloon5">Баллоны, д. 41 &#34;нос-нос&#34;</a></p>
+              <p><a class="trans" data-trans="Баллон д. 41 симметр. &#34;нос-нос&#34;,Balloon diameter 41see symmetrical,Ballon 41 cm im Durchmesser symmetrisch,Ballonet d'un diamètre de 41cm symétrique" href="#" data-model="balloon5">Баллоны, д. 41 &#34;нос-нос&#34;</a></p>
               
-              <p><a class="trans" data-trans="" href="#" data-model="balloon6">Баллоны, д. 41 &#34;ассиметр.&#34;</a></p>
+              <p><a class="trans" data-trans="Баллон диаметр 41 см. ассимметричный,Balloon diameter 41 see assymmetrical,Ballon 41 cm im Durchmesser asymmetrisch,Ballonet d'un diamètre de 41cm asymétrique" href="#" data-model="balloon6">Баллоны, д. 41 &#34;ассиметр.&#34;</a></p>
               
-              <p><a class="trans" data-trans="" href="#" data-model="balloon7">Баллоны, д. 45 &#34;нос-нос&#34;</a></p>
+              <p><a class="trans" data-trans="Баллон д. 45 симметр. &#34;нос-нос&#34;,Balloon diameter 45see symmetrical,Ballon 45 cm im Durchmesser symmetrisch,Ballonet d'un diamètre de 45cm symétrique" href="#" data-model="balloon7">Баллоны, д. 45 &#34;нос-нос&#34;</a></p>
               
-              <p><a class="trans" data-trans="" href="#" data-model="balloon8">Баллоны, д. 45 &#34;ассиметр.&#34;</a></p>
+              <p><a class="trans" data-trans="Баллон диаметр 45 см. ассимметричный,Balloon diameter 45 see assymmetrical,Ballon 45 cm im Durchmesser asymmetrisch,Ballonet d'un diamètre de 45cm asymétrique" href="#" data-model="balloon8">Баллоны, д. 45 &#34;ассиметр.&#34;</a></p>
               
-              <p><a class="trans" data-trans="" href="#" data-model="balloon9">Баллоны, д. 50 &#34;нос-нос&#34;</a></p>
+              <p><a class="trans" data-trans="Баллон д. 50 симметр. &#34;нос-нос&#34;,Balloon diameter 50see symmetrical,Ballon 50 cm im Durchmesser symmetrisch,Ballonet d'un diamètre de 50cm symétrique" href="#" data-model="balloon9">Баллоны, д. 50 &#34;нос-нос&#34;</a></p>
               
-              <p><a class="trans" data-trans="" href="#" data-model="balloon10">Баллоны, д. 50 &#34;ассиметр.&#34;</a></p>
+              <p><a class="trans" data-trans="Баллон диаметр 50 см. ассимметричный,Balloon diameter 50 see assymmetrical,Ballon 50 cm im Durchmesser asymmetrisch,Ballonet d'un diamètre de 50cm asymétrique" href="#" data-model="balloon10">Баллоны, д. 50 &#34;ассиметр.&#34;</a></p>
               
             </div>
           </div>
