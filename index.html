@@ -38,7 +38,6 @@ console.log(loc);
       [].slice.call(document.querySelectorAll(".panel-body a")).forEach(function (el) {
           el&&(el.onclick = function (event) {
             $("#wrap").css("background","none");
-            ​
             var model = el.getAttribute("data-model");
             onw3d.init(model);
             event.preventDefault ? event.preventDefault() : event.returnValue = !1;
