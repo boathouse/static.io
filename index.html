@@ -99,15 +99,16 @@ var loc = window.location.search.replace("?loc=","") || "rus";
         <span style="margin-right:40px;">Boat</span> <img src="img/logo.png" style="position:absolute; left:104px; top:5px; width:40px;"> House
       </a>
     </div>
-    <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-      <li>Выбор языка: 
-      	<select id="loc" name="loc" onChange="locateTo(this.value)">
+    <div style="float:right; color:#bbb; margin-top:15px">Выбор языка: 
+      	<select id="loc" style="color:#333" name="loc" onChange="locateTo(this.value)">
 	      <option value="rus" selected>Русский
 	      <option value="en">Английский
 	      <option value="de">Немецкий
 	      <option value="fr">Французский
       	</select>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
       <!--<li><a href="#" onclick="addToCart('50')">test</a></li> -->
       <!-- <li><a href="setup.html">Установка</a></li> -->
       <!-- <li><a target="_blank" href="https://github.com/boathouse/v2">Файлы</a></li> -->
@@ -129,7 +130,7 @@ var loc = window.location.search.replace("?loc=","") || "rus";
         <div class="panel panel-default">
           <div class="panel-heading">
             <h4 class="panel-title">
-              <a style="display:block" data-toggle="collapse" data-parent="#accordion" href="#collapse5629499534213120">Байдарки серии STREAM</a>
+              <a style="display:block" data-toggle="collapse" data-parent="#accordion" href="#collapse5629499534213120">Байдарки STREAM</a>
             </h4>
           </div>
           <div id="collapse5629499534213120" class="panel-collapse collapse">
