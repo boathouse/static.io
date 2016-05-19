@@ -24,7 +24,7 @@
       e.readyState ? e.onreadystatechange = function() {
         ("loaded" == e.readyState || "complete" == e.readyState) && (e.onreadystatechange = null, w());
       } : e.onload = function() { w(); }, e.src = a + "?v=" + v.version; i.appendChild(e);
-    } (window, document, "js/onw3d.js", onReady, { version: "2.1", logo_type: "1" });
+    } (window, document, "js/onw3d.js", onReady, { version: "2.1", logo_type: "1", lang: window.location.hash.replace("#","") || "rus" });
 
     function onReady () {
       $("#scene p").html('is ready!').delay(1000).fadeOut();
@@ -38,6 +38,10 @@
           });
       });
     };
+
+    function locateTo(a) {
+    	window.location = '/#'+a;
+    }
     
     function setPrices(){
       $('.panel-body a').each(function(idx, el){
@@ -94,6 +98,13 @@
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
+      <li>Выбор языка: 
+      	<select id="loc" name="loc" onChange="locateTo(this.value)">
+	      <option value="rus" selected>Русский
+	      <option value="en">Английский
+	      <option value="de">Немецкий
+	      <option value="fr">Французский
+      	</select>
       <!--<li><a href="#" onclick="addToCart('50')">test</a></li> -->
       <!-- <li><a href="setup.html">Установка</a></li> -->
       <!-- <li><a target="_blank" href="https://github.com/boathouse/v2">Файлы</a></li> -->
