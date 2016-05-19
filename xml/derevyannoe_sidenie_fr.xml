@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<model><name>Деревянное сидение</name><dist>25</dist><url>None</url><colors>green|grey|light|sea|1</colors><helpers><helpitem><id>5649126595231744</id><mesh>Box</mesh><type>hide</type><tooltip>Только для SEAFISHER</tooltip></helpitem></helpers></model>
