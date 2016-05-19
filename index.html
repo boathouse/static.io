@@ -16,7 +16,7 @@ function locateTo(a) {
     	window.location.href = '?loc='+a;
 }
 var loc = window.location.search.replace("?loc=","") || "rus";
-console.log(loc);
+
 !function($) {
   $(function() {
     $("#wrap").css("height", ($(window).height()-100)+"px").resizable({ ghost: true });
