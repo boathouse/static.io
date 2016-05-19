@@ -53,7 +53,7 @@
     <div class="col-md-9">
       <h1>Инструкция по установке</h1>
       <p>Javascript код для установки на сайт: </p>
-      <p>если на странице не подключен JQuery - данный код следует поместить в конце страницы перед закрывающим тегом &lt;/body&gt;</p>
+      <p>следует поместить в конце страницы перед закрывающим тегом &lt;/body&gt;</p>
       <pre class="prettyprint">
 &lt;script&gt;
 var setup = {};
@@ -68,15 +68,10 @@ var setup = {};
 &lt;/script&gt;
         </pre>
 
-        <p>В случае с JQuery подключаем так:</p>
-<pre class="prettyprint">
-$(function() {
-  !function(b, o, a, t, v, i, e, w) {
-  ...
-});
-</pre>
+      
 <br>
-        <p><b>onReady</b> - это сallback функция. Вызовется, когда приложение будет готово к использованию, произойдет запуск приложения и загрузка указанной модели: (список доступных кодов моделей см. в таблице)</p>
+<p><b>onReady</b> - в данном случае это сallback функция. Загружаем 3d-модель указывая ее код: <small>(список доступных кодов моделей см. в таблице)</small></p>
+       
         
         <pre class="prettyprint">
 function onReady () {
@@ -106,7 +101,7 @@ function onReady () {
           <li><b>xml_path</b> - к файлам данных в формате XML
         </ul>
         <p style="font-size:11px;font-weight:700"><sup style="color:red">*</sup>Все пути (url) должны быть указаны абсолютными, например: { xml_path: 'http://domain.com/path_to_xml/' }</p>
-        <p>Это может понадобиться в случае, если захотите разместить файлы на своем сервере. Скачать можно <a href="https://github.com/boathouse/v2" target="_blank">здесь</a>.</p>
+        <p>Это может понадобиться в случае, если захотите разместить файлы на своем сервере. Скачать их можно <a href="https://github.com/boathouse/v2" target="_blank">здесь</a>.</p>
 
 <br>
 <h2>Пример полного html кода страницы:</h2>
