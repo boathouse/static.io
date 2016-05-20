@@ -16,27 +16,27 @@ function locateTo(a) {
     window.location.href = '?loc='+a;
 }
 
-var loc = window.location.search.replace("?loc=","") || "rus", locs={rus:0,en:1,de:2,fr:3};
+var loc = window.location.search.replace("?loc=","") || "rus", locs = {rus:0, en:1, de:2, fr:3};
 
 !function($) {
   $(function() {
     $("#wrap").css("height", ($(window).height()-100)+"px").resizable({ ghost: true });
     var prices = [];
 
-	$('#loc').val(loc).selectpicker({
-	  style: 'btn-info',
-	});
+  	$('#loc').val(loc).selectpicker({
+  	  style: 'btn-info',
+  	});
 
     transTo(loc);
     
     !function(b, o, a, t, v, i, e, w) {
-      w = function() { v = v || {}, b.onw3d = b.onw3d || new Onw3dViewer(v), t && t(); },
+      w = function() { v = v || {}, b.onw3d = new Onw3dViewer(v), t && t(); },
       i = o.getElementsByTagName("head")[0],
       e = o.createElement("script"), e.type = "text/javascript", e.async = !0,
       e.readyState ? e.onreadystatechange = function() {
         ("loaded" == e.readyState || "complete" == e.readyState) && (e.onreadystatechange = null, w());
       } : e.onload = function() { w(); }, e.src = a + "?v=" + v.version; i.appendChild(e);
-    } (window, document, "js/onw3d.js", onReady, { version: "2.1", logo_type: "1", lang: loc});
+    } (window, document, "js/onw3d.js", onReady, { version: "2.1", logo_type: "1", lang: loc });
 
     function onReady () {
       $("#scene p").html('is ready!').delay(1000).fadeOut();
