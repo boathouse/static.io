@@ -62,7 +62,8 @@ if(loc) isLoc = !0; else loc = 'rus';
     };
 
     function loadRecent() {
-    	console.log(Cookies.get());
+    	var model = Cookies.get('model');
+    	onw3d.init(model);
     }
 
     function transTo(a) {
