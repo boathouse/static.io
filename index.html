@@ -16,11 +16,18 @@ function locateTo(a) {
     window.location.href = '?loc='+a;
 }
 
-var loc = window.location.search.replace("?loc=","") || "rus", locs = {rus:0, en:1, de:2, fr:3};
+var loc = window.location.search.replace("?loc=","") || !1, locs = {rus:0, en:1, de:2, fr:3}, isLoc = !1;
+if(loc) isLoc = !0; else loc = 'rus';
 
 !function($) {
   $(function() {
-    $("#wrap").css("height", ($(window).height()-100)+"px").resizable({ ghost: true });
+  	$("#wrap").css("height", ($(window).height()-100)+"px").resizable({ ghost: true });
+
+  	function resize() { 
+	    $("#wrap").css({"left": "26%", "width": "72%", "height": ($(window).height()-100)+"px"});
+	}
+  	window.onresize = resize;
+    
     var prices = [];
 
   	$('#loc').val(loc).selectpicker({
@@ -41,16 +48,22 @@ var loc = window.location.search.replace("?loc=","") || "rus", locs = {rus:0, en
     function onReady () {
       $("#scene p").html('is ready!').delay(1000).fadeOut();
       
-      
+      isLoc&&loadRecent();
+
       [].slice.call(document.querySelectorAll(".panel-body a")).forEach(function (el) {
           el&&(el.onclick = function (event) {
             $("#wrap").css("background","none");
             var model = el.getAttribute("data-model");
+            Cookies.set('model', model, { path: '/' });
             onw3d.init(model);
             event.preventDefault ? event.preventDefault() : event.returnValue = !1;
           });
       });
     };
+
+    function loadRecent() {
+    	console.log(Cookies.get());
+    }
 
     function transTo(a) {
     	$('.trans').each(function(idx, el){
@@ -75,13 +88,14 @@ var loc = window.location.search.replace("?loc=","") || "rus", locs = {rus:0, en
       });
       setPrices();
     });
-    
   });
 }(window.jQuery);
 </script>
 
 <style>
-  body{height:100%;min-height:100%;font-family:Arial, Helvetica, sans-serif; position:relative; font-size:14px;background: url(img/water_hires.jpg) no-repeat top center; background-size: cover;}
+::-webkit-scrollbar {width: 10px; background-color: #323232;}
+::-webkit-scrollbar-thumb {background-color: #3d657f;}
+  body{height:100%;min-height:100%;font-family:Arial, Helvetica, sans-serif; position:relative; font-size:14px;background:#192730;  background:  #192730 url(img/water.jpg) no-repeat top center; background-size: 100%; background-attachment: fixed;}
   .container{width:98%;}
   #scene{width:100%; height:100%; text-align: center; }
   #scene img{width:600px; position:absolute; left:30%; bottom:50px;}
@@ -130,7 +144,7 @@ var loc = window.location.search.replace("?loc=","") || "rus", locs = {rus:0, en
   </div>
 </nav>
 
-<div id="grad-top" style="width:100%;height:220px;position:absolute;left:0; top:0; z-index:0; opacity:0.75;
+<div id="grad-top" style="width:100%;height:220px;position:fixed;left:0; top:0; z-index:0; opacity:0.75;
   background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAD6CAYAAABgQC1TAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMDY3IDc5LjE1Nzc0NywgMjAxNS8wMy8zMC0yMzo0MDo0MiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6QTk4OUNDN0Q3NDA3MTFFNTk4MzBBQTVBNjNFNTc3QzIiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6QTk4OUNDN0M3NDA3MTFFNTk4MzBBQTVBNjNFNTc3QzIiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpGNTc1RkY4QzEyQTAxMUU0ODRFQ0UwQzI4Qjk1MUUzMCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpGNTc1RkY4RDEyQTAxMUU0ODRFQ0UwQzI4Qjk1MUUzMCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PgZ8UlkAAABySURBVHja7FMxEoAwCMvp/5/qDwTq6eDBkVIWJ5cckISBpgBwbBfghwfMV60WCZtBS/JWWtuCThPb3UoymxNUIkwsnhXPnkzcmoX1WRtuELzagfkCemKtq9WnXQiNsoRlOUWdYmqLxF5/MJjZx396CDAAN9GR8aHaYeIAAAAASUVORK5CYII=');">
 </div>
 
