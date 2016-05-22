@@ -23,13 +23,13 @@ prices = [];
 if(loc) isLoc = !0; else loc = 'rus';
 
 function cartUpdate(b,p) {
-      console.log(b);
+      //console.log(b);
       var price = p || !1;
       if(price) p = '\u0024' + parseInt(price);
       else p = '\u0024' + parseInt(prices[b]);
-      //if(!isNaN(prices[b])) {
+      if(!isNaN(p) {
         $("#price-btn").show().find('b').text(p);
-      //}
+      }else console.log('not number');
     }
 
 !function($) {
@@ -139,7 +139,7 @@ background: -moz-linear-gradient(top,  #f2825b 0%, #e55b2b 50%, #f07146 100%);
 background: -webkit-linear-gradient(top,  #f2825b 0%,#e55b2b 50%,#f07146 100%);
 background: linear-gradient(to bottom,  #f2825b 0%,#e55b2b 50%,#f07146 100%);
  position:absolute; left:0; top:0; text-align: center; font-size:20px; text-transform: uppercase; line-height: 60px;}
-  #price-btn:hover:before{display:block;}
+  #price-btn:hover:before{display:none;}
 </style>
 </head>
 <body>
