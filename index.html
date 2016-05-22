@@ -73,7 +73,7 @@ if(loc) isLoc = !0; else loc = 'rus';
     	if(price) p = '\u0024' + parseInt(price);
     	else p = '\u0024' + parseInt(prices[b]);
     	//if(!isNaN(prices[b])) {
-    		$("#price-btn").find('b').text(p).show();
+    		$("#price-btn").show().find('b').text(p);
     	//}
     }
 
