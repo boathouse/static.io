@@ -68,6 +68,7 @@ if(loc) isLoc = !0; else loc = 'rus';
     };
 
     function cartUpdate(b,p) {
+    	console.log('update');
     	var price = p || !1;
     	if(price) p = '\u0024' + parseInt(price);
     	else p = '\u0024' + parseInt(prices[b]);
