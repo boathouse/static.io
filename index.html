@@ -77,8 +77,8 @@ if(loc) isLoc = !0; else loc = 'rus';
     }
 
     function loadRecent() {
-    	var model = Cookies.get('model');
-    	var price = Cookies.get(model);
+    	var model = Cookies.get('model'); console.log(model);
+    	var price = Cookies.get(model); console.log(price);
     	model&&onw3d.init(model);
     	price&&cartUpdate(model,price);
     }
