@@ -80,7 +80,7 @@ if(loc) isLoc = !0; else loc = 'rus';
     	var model = Cookies.get('model');
     	var price = Cookies.get(model);
     	model&&onw3d.init(model);
-    	price&&cartUpdate(model);
+    	price&&cartUpdate(model,price);
     }
 
     function transTo(a) {
