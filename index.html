@@ -25,6 +25,7 @@ if(loc) isLoc = !0; else loc = 'rus';
 !function($) {
   $(function() {
   	!isLoc && Cookies.remove('model', { path: '/' });
+  	!isLoc && Cookies.remove('price', { path: '/' });
   	$("#price-btn").hide();
   	$("#wrap").css("height", ($(window).height()-100)+"px").resizable({ ghost: true });
 
@@ -58,7 +59,7 @@ if(loc) isLoc = !0; else loc = 'rus';
             $("#wrap").css("background","none");
             var model = el.getAttribute("data-model");
             Cookies.set('model', model, { path: '/' });
-            Cookies.set(model, parseInt(prices[model]), { path: '/' });
+            Cookies.set('price', parseInt(prices[model]), { path: '/' });
             $("#price-btn").show();
             onw3d.init(model);
             cartUpdate(model);
@@ -68,7 +69,6 @@ if(loc) isLoc = !0; else loc = 'rus';
     };
 
     function cartUpdate(b,p) {
-    	console.log('update');
     	var price = p || !1;
     	if(price) p = '\u0024' + parseInt(price);
     	else p = '\u0024' + parseInt(prices[b]);
@@ -78,8 +78,8 @@ if(loc) isLoc = !0; else loc = 'rus';
     }
 
     function loadRecent() {
-    	var model = Cookies.get('model'); console.log(model);
-    	var price = Cookies.get(model); console.log(price);
+    	var model = Cookies.get('model'); //console.log(model);
+    	var price = Cookies.get('price'); //console.log(price);
     	model&&onw3d.init(model);
     	price&&cartUpdate(model,price);
     }
