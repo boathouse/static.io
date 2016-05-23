@@ -16,6 +16,14 @@ function locateTo(a) {
     window.location.href = '?loc='+a;
 }
 
+function UrlExists(url)
+{
+    var http = new XMLHttpRequest();
+    http.open('HEAD', url, false);
+    http.send();
+    return http.status!=404;
+}
+
 var loc = window.location.search.replace("?loc=","") || !1, 
 locs = {rus:0, en:1, de:2, fr:3}, 
 isLoc = !1, 
@@ -34,12 +42,10 @@ function cartUpdate(b,p) {
 
 !function($) {
   $(function() {
-  	!isLoc && Cookies.remove('model', { path: '/' });
-  	!isLoc && Cookies.remove('price', { path: '/' });
+  	!isLoc && Cookies.remove('model');
+  	!isLoc && Cookies.remove('price');
   	$("#price-btn").hide();
   	$("#wrap").css("height", ($(window).height()-100)+"px").resizable({ ghost: true });
-
-    
 
   	function resize() { 
 	    $("#wrap").css({"left": "26%", "width": "72%", "height": ($(window).height()-100)+"px"});
@@ -70,8 +76,8 @@ function cartUpdate(b,p) {
           el&&(el.onclick = function (event) {
             $("#wrap").css("background","none");
             var model = el.getAttribute("data-model");
-            Cookies.set('model', model, { path: '/' });
-            Cookies.set('price', parseInt(prices[model]), { path: '/' });
+            Cookies.set('model', model);
+            Cookies.set('price', parseInt(prices[model]));
             $("#price-btn").show();
             onw3d.init(model);
             cartUpdate(model);
@@ -80,11 +86,9 @@ function cartUpdate(b,p) {
       });
     };
 
-    
-
     function loadRecent() {
-    	var model = Cookies.get('model'); //console.log(model);
-    	var price = Cookies.get('price'); //console.log(price);
+    	var model = Cookies.get('model');
+    	var price = Cookies.get('price');
     	model&&onw3d.init(model);
     	price&&cartUpdate(model,price);
     }
@@ -106,7 +110,12 @@ function cartUpdate(b,p) {
       });
     }
   
-    $.get("http://boathouse.ua/index.php?route=get_models_data").done(function (xml) {
+    var local = 'http://git.on-web.com.ua/xml/prices.xml';
+    var external = 'http://boathouse.ua/index.php?route=get_models_data';
+    var real = '';
+  	if(UrlExists(local)) real = local; else real = external;
+
+    $.get(real).done(function (xml) {
       $(xml).find("model").each(function(idx, v) {
         prices[$(v).find("kod").text()] = $(v).find("price").text();
       });
