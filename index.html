@@ -118,7 +118,7 @@ function cartUpdate(b,p) {
     var local = 'http://git.on-web.com.ua/xml/prices.xml';
     var external = 'http://boathouse.ua/index.php?route=get_models_data';
     var real = '';
-  	if(UrlExists(local)) real = local; else real = external;
+  	if(UrlExists(local)) real = external; else real = external;
 
     $.get(real).done(function (xml) {
       $(xml).find("model").each(function(idx, v) {
