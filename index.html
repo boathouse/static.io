@@ -76,8 +76,8 @@ function cartUpdate(b,p) {
             $("#wrap").css("background","none");
             var model = el.getAttribute("data-model");
             Cookies.set('model', model);
-            Cookies.set('price', parseInt(prices[model][1]));
-            Cookies.set('id', prices[model][0]);
+            prices[model]&&(Cookies.set('price', parseInt(prices[model][1])));
+            prices[model]&&(Cookies.set('id', prices[model][0]));
             $("#price-btn").show();
             onw3d.init(model);
             cartUpdate(model);
