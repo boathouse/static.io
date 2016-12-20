@@ -34,7 +34,7 @@ function cartUpdate(b,p) {
       //console.log(b);
       var price = p || !1;
       if(price) p = '\u0024' + parseInt(price);
-      else p = '\u0024' + parseInt(prices[b][1]||0);
+      else prices[b]&&(p = '\u0024' + parseInt(prices[b][1]));
       //if(!isNaN(p)) {
         $("#price-btn").show().find('b').text(p);
       //}else console.log('not number');
