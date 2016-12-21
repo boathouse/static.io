@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<model><name>TRAVEL MAX 700 C</name><dist>55</dist><url>None</url><colors>green|grey|light|travel|1</colors><grades><gradeitem><id>5680572198289408</id><mesh>Veslo</mesh><translate>0|14.6|16.9</translate><rotate>45|0|0</rotate><remove></remove></gradeitem></grades><helpers><helpitem><id>5750762164453376</id><mesh>Runduk</mesh><type>hide</type><tooltip>Передний рундук объёмом 500 л.</tooltip></helpitem></helpers></model>
