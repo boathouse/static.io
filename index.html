@@ -118,15 +118,15 @@ function cartUpdate(b,p) {
     var local = 'https://boathouse.github.io/v2/xml/prices.xml';
     var external = 'https://boathouse.ua/index.php?route=get_models_data';
     var real = '';
-  	//if(UrlExists(local)) real = external; else real = external;
+	  
+    if(UrlExists(local)) real = external; else real = external;
 
-    /*$.get(real).done(function (xml) {
+    $.get(real).done(function (xml) {
       $(xml).find("model").each(function(idx, v) {
         prices[$(v).find("kod").text()] = [$(v).find("id").text(),$(v).find("price").text()];
       });
       setPrices();
     });
-    */
   });
 }(window.jQuery);
 </script>
